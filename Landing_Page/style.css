@@ -93,14 +93,17 @@ body {
 
 .h1-leftContent {
     margin-bottom: 32px;
-    color: #49484B;
+    color: #fff;
     font-size: 45px;
     font-weight: bold;
 }
 
 .text-leftContent {
     font-size: 14px;
-    color: #49484B;
+    color: #fff;
+    padding-right: 90px;
+    line-height: 20px;
+
 }
 
 .btn-about {
