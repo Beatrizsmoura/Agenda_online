@@ -204,3 +204,29 @@ body {
     width: 100%;
     height: 1000px;
 }
+
+.h1-third-content {
+    text-align: center;
+    color: #49484B;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 132%;
+}
+
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* CARD */
+
+.card {
+    width: 250px;
+    height: 270;
+    border: 1px solid #0C0C0C;
+}
