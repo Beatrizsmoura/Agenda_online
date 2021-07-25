@@ -1,95 +1,74 @@
 import React, {useState} from 'react';
+import {View, Text, StyleSheet, SafeAreaView, StatusBar, TouchableOpacity, FlatList} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import TaskList from './src/components/TaskList';
 
-
-import {View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 // View é a mesma coisa que DIV
 export default function App(){
 
-    const [peso, setPeso] = useState('');
-    const [altura, setAltura] = useState('');
-
-
-    function handleSubmit(){
-        const imc = peso/((altura/100)**2);
-
-
-        if(imc < 18){
-            alert("Você está abaixo do peso!" + imc.toFixed(2))
-        }else if(imc > 18.6 && imc < 24.9){
-            alert("Peso ideal!" + imc.toFixed(2))
-        }else if(imc >= 24.9 && imc <34.9){
-            alert("Levemente acima do peso!" + imc.toFixed(2))
-        }else {
-            alert("Bastante acima do peso!" + imc.toFixed(2))
-        }
-    }
+    const [task, setTask] = useState([
+        { key: 1, task: 'Comprar pão'},
+        { key: 2, task: 'Dar boa noite'},
+        { key: 3, task: 'Enganar Trouxa'},
+    ])
 
     return(
-        <View style={styles.container}>
-            <Text style={styles.title}>Calcule seu IMC</Text>
+        <SafeAreaView style={styles.container}>
+            <StatusBar backgroundColor="#171d31" barStyle="ligh-content" />
+            <View style={styles.content}>
+                <Text style={styles.title}>Tarefas</Text>
+            </View>
 
-            <TextInput 
-            style={styles.input}
-            value={peso} // Passa valor
-            onChangeText={ (peso) => setPeso(peso)} // Toda vez que eu digitar, guarda em algum lugar
-            placeholder="Peso (Kg)"
-            keyboardType='numeric'
+            <FlatList
+            marginHorizontal={10}
+            showsVerticalScrollIndicator={false}
+            data={task} // Data
+            keyExtractor={ (item) => String(item.key)} // Key
+            renderItem= { ({item}) => <TaskList data={item} />} // Render do item
             />
 
-            <TextInput 
-            style={styles.input}
-            value={altura} // Passa valor
-            onChangeText={ (altura) => setAltura(altura)} // Toda vez que eu digitar, guarda em algum lugar
-            placeholder="Altura (cm)"
-            keyboardType='numeric'
-            />
 
-            <Text styles={styles.title}>Peso: {peso}kg / Altura: {altura}cm</Text>
-
-            <TouchableOpacity 
-            style={styles.button}
-            onPress={handleSubmit}>
-                <Text style={styles.buttonText}>Calcular</Text>
-            </TouchableOpacity>
-
-        </View>
-    );
+        <TouchableOpacity style={styles.fab}>
+            <Ionicons name="ios-add" size={40} color="#fff"/>
+        </TouchableOpacity>
+            
+        </SafeAreaView>
+    )
 }
-
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
+        backgroundColor: '#171d31'
     },
 
     title: {
+        marginTop: 10,
+        paddingBottom: 10,
+        fontSize: 25,
         textAlign: 'center',
-        marginTop: 20,
-        fontSize: 30,
-    },
-
-    input: {
-        backgroundColor: '#121212',
-        borderRadius: 5,
-        color: '#fff',
-        margin: 20,
-        padding: 10,
-
+        color: '#fff'
 
     },
 
-    button: {
-        justifyContent: 'center',
+    fab: {
+        position: 'absolute',
+        width: 60,
+        height: 60,
+        backgroundColor: '#0094ff',
         alignItems: 'center',
-        margin: 15,
-        backgroundColor: '#41Aef4',
-        padding: 10,
+        justifyContent: 'center',
+        borderRadius: 30,
+        right: 25,
+        bottom: 25,
+        elevation: 2,
+        zIndex: 9,
+        shadowColor: '#000',
+        shadowOpacity: 0.2,
+        shadowOffset: {
+            width: 1,
+            height: 3,
+        }
 
-    },
-
-    buttonText: {
-        color: '#fff',
-        fontWeight: 'bold'
     }
-
 })
