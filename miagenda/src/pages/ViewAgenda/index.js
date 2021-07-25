@@ -1,0 +1,24 @@
+import React from 'react';
+import { View, Text } from 'react-native';
+
+export default function ViewAgenda(){
+    return(
+        <View style={styles.container}>
+            <Text>Olá, você está visualizando a página</Text>
+        </View>
+    )
+}
+
+ViewAgenda.navigation.Options = {
+    title: 'View Agenda',
+}
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        width: '100vw',
+        height: '100vh',
+
+    }
+})

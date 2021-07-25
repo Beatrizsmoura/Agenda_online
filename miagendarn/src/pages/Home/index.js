@@ -3,7 +3,7 @@ import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
 import Logo from '../../miagendaAssets/Home/Logo.svg'
 
-export default function Home(navigation){
+export default function Home(){
     return(
         <View style={styles.container}>
 
@@ -18,8 +18,7 @@ export default function Home(navigation){
             
 
             <TouchableOpacity 
-            style={styles.button}
-            onPress={() => navigation.navigate('ViewAgenda')}>
+            style={styles.button}>
                 
                 <Image
                 style={styles.iconButton} 
@@ -30,10 +29,6 @@ export default function Home(navigation){
             </TouchableOpacity>
         </View>
     )
-}
-
-Home.navigationOptions = {
-    title: 'Home',
 }
 
 const styles = StyleSheet.create({
