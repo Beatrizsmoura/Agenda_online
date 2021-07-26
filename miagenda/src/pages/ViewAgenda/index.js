@@ -4,7 +4,6 @@ import TaskList from '../../components/TaskList/index';
 import * as Animatable from 'react-native-animatable';
 
 
-const AnimatedBtn = Animatable.createAnimatableComponent(TouchableOpacity)
 
 export default function ViewAgenda(){
 
@@ -12,7 +11,10 @@ export default function ViewAgenda(){
         { key: 1, title: 'Título da Anotação', task: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sollicitudin tincidunt ac a tortor nulla in elementum odio.'},
     ])
 
-    const [ModalVisible, setModalVisible] = useState(false);
+  
+
+    const [title, setTitle] = useState('');
+    const [text, setText] = useState('');
 
 
     return(
@@ -32,24 +34,28 @@ export default function ViewAgenda(){
             <Text style={styles.blocoNotas}>Bloco de Notas</Text>
 
 
-            <Modal animationType="slide" transparent={false} visible={ModalVisible}>
-                <View style={{flex: 1}}>
-                <Text>I am the modal content!</Text>
-                </View>
-            </Modal>
+            
+            <View style={styles.inputBlocoNotas}>
+            <TextInput 
+            autoFocus={false}
+            style={styles.taskTitle}
+            value={title} // Passa valor
+            onChangeText={ (title) => setTitle(title)} // Toda vez que eu digitar, guarda em algum lugar
+            placeholder='Título da Anotação'
+            />
 
+            <TextInput
+            multiline = {true}
+            numberOfLines = {10}
+            style={styles.task}
+            value={text} // Passa valor
+            onChangeText={ (text) => setText(text)} // Toda vez que eu digitar, guarda em algum lugar
+            placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sollicitudin'
+            />
+            </View>
+            
 
-            <AnimatedBtn 
-            useNativeDriver
-            animation="bounceInUp"
-            duration={1500}
-            onPress={ () => setModalVisible(true)}
-            style={styles.fab}>
-                    {console.log(ModalVisible)
-                    }
-                <Text>Criar Anotaçção</Text>
-            </AnimatedBtn>
-
+            {/*
             <FlatList style={styles.list}
             marginHorizontal={10}
             data={task} // Data
@@ -57,7 +63,7 @@ export default function ViewAgenda(){
             renderItem= { ({item}) => <TaskList data={item} />} // Render do item
             />
                
-            
+            */}
 
             
         </View>
@@ -87,6 +93,16 @@ const styles = StyleSheet.create({
 
     },
 
+    taskTitle: {
+        color: '#393F4E',
+        fontSize: 18,
+        fontWeight: '600',
+        marginBottom: 14,
+        outline: '1px #fff',
+        
+
+    },
+
     blocoNotas: {
         marginTop: 20,
         width: '85%',
@@ -100,6 +116,27 @@ const styles = StyleSheet.create({
         width: '93%',
         height: 'auto',
         display: 'flex',
+    },
+
+    task: {
+        flexWrap: 'wrap',
+        width: '100%',
+        height: 'auto',
+        color: '#393F4E',
+        fontSize: 14,
+        textAlign: 'justify',
+    },
+
+    inputBlocoNotas: {
+        width: '90%',
+        flex: 1,
+        display: 'flex',
+        backgroundColor: 'white',
+        padding: 7,
+        elevation: 1.5,
+        shadowOpacity: 0.2,
+        border: '1px solid transparent',
+        borderTopColor: '#E3E3E3',
     },
 
     calendar: {
