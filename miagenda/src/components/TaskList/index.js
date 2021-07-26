@@ -1,10 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, Image, FlatList, TouchableOpacity,} from 'react-native';
-
+import * as Animatable from 'react-native-animatable';
 
 export default function TaskList({data}){
     return(
-        <View style={styles.container}>
+        <Animatable.View 
+        style={styles.container}
+        animation='bounceIn'
+        useNativeDriver
+        >
          
                 <View>
                     <Text style={styles.taskTitle}>{data.title}</Text>
@@ -18,7 +22,7 @@ export default function TaskList({data}){
                 require('../../miagendaAssets/ViewAgenda/ButtonAnotacao.svg')
             } />
             </TouchableOpacity>
-        </View>
+        </Animatable.View>
     )
 }
 
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
         elevation: 1.5,
         shadowOpacity: 0.2,
         border: '1px solid transparent',
-        borderBottomColor: '#E3E3E3',
+        borderTopColor: '#E3E3E3',
 
     },
     taskTitle: {

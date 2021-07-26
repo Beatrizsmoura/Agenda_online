@@ -1,20 +1,25 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, TextInput, Image, FlatList} from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image, FlatList, TouchableOpacity, SafeAreaView, Modal} from 'react-native';
 import TaskList from '../../components/TaskList/index';
+import * as Animatable from 'react-native-animatable';
+
+
+const AnimatedBtn = Animatable.createAnimatableComponent(TouchableOpacity)
 
 export default function ViewAgenda(){
 
     const [task, setTask] = useState([
         { key: 1, title: 'Título da Anotação', task: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sollicitudin tincidunt ac a tortor nulla in elementum odio.'},
-        { key: 2, title: 'Título da Anotação', task: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sollicitudin tincidunt ac a tortor nulla in elementum odio.'},
-        { key: 3, title: 'Título da Anotação', task: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sollicitudin tincidunt ac a tortor nulla in elementum odio.'},
-        { key: 4, title: 'Título da Anotação', task: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sollicitudin tincidunt ac a tortor nulla in elementum odio.'},
-        { key: 5, title: 'Título da Anotação', task: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sollicitudin tincidunt ac a tortor nulla in elementum odio.'},
     ])
+
+    const [ModalVisible, setModalVisible] = useState(false);
 
 
     return(
         <View style={styles.container}>
+
+            
+
             <TextInput 
             style={styles.input}
             placeholder='Pesquisar compromisso'
@@ -25,6 +30,25 @@ export default function ViewAgenda(){
             } />
 
             <Text style={styles.blocoNotas}>Bloco de Notas</Text>
+
+
+            <Modal animationType="slide" transparent={false} visible={ModalVisible}>
+                <View style={{flex: 1}}>
+                <Text>I am the modal content!</Text>
+                </View>
+            </Modal>
+
+
+            <AnimatedBtn 
+            useNativeDriver
+            animation="bounceInUp"
+            duration={1500}
+            onPress={ () => setModalVisible(true)}
+            style={styles.fab}>
+                    {console.log(ModalVisible)
+                    }
+                <Text>Criar Anotaçção</Text>
+            </AnimatedBtn>
 
             <FlatList style={styles.list}
             marginHorizontal={10}
