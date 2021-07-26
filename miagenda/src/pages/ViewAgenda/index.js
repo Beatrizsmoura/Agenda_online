@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet} from 'react-native';
 
 export default function ViewAgenda(){
     return(
@@ -15,6 +15,5 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100vw',
         height: '100vh',
-
     }
 })

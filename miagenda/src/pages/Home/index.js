@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     textInicial: {
         color: '#414142',
         fontSize: 36,
-        fontWeight: 800,
+        fontWeight: '800',
         justifyContent: 'center',
         textAlign: 'center',
         padding: 40,
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         paddingLeft: 60,
         paddingRight: 60,
         color: '#969696',
-        fontWeight: 500,
+        fontWeight: '500',
 
     },
 
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     textButton: {
         color: '#fff',
         fontSize: 20,
-        fontWeight: 500,
+        fontWeight: '500',
     }
 
 })

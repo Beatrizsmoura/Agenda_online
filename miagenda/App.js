@@ -2,13 +2,15 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, StatusBar, TouchableOpacity, FlatList} from 'react-native';
 
 import Home from './src/pages/Home'
+import ViewAgenda from './src/pages/ViewAgenda'
 
 // View é a mesma coisa que DIV
 export default function App(){
     return(
         <SafeAreaView style={styles.container}>
             <View>
-                <Home></Home>
+                {/*<Home></Home>*/}
+                <ViewAgenda></ViewAgenda>
             </View>
 
         </SafeAreaView>
