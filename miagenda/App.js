@@ -1,17 +1,48 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, StatusBar, TouchableOpacity, FlatList} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from './src/pages/Home'
 import ViewAgenda from './src/pages/ViewAgenda'
 
+
+
+
 // View é a mesma coisa que DIV
 export default function App(){
+
+    const Stack = createStackNavigator();
+
     return(
+        
         <SafeAreaView style={styles.container}>
-            <View>
-                {/*<Home></Home>*/}
-                <ViewAgenda></ViewAgenda>
-            </View>
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen
+                    options={{
+                        title: '',
+                        headerStyle: {
+                            
+                            height: 0,
+                           
+                        }
+                    }}
+                    name="Home" component={Home} />
+                    <Stack.Screen
+                    options={{
+                        title: 'Miagenda',
+                        
+                        headerStyle:{
+                            borderBottomColor: '#fff',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }
+                    }} 
+                    
+                    name="ViewAgenda" component={ViewAgenda} />
+                </Stack.Navigator>
+            </NavigationContainer>
 
         </SafeAreaView>
         
