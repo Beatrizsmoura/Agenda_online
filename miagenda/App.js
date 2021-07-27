@@ -6,15 +6,23 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './src/pages/Home'
 import ViewAgenda from './src/pages/ViewAgenda'
 import CriarCompromisso from './src/pages/CriarCompromisso';
-
-
+import { Poppins_600SemiBold, } from '@expo-google-fonts/poppins';
+import { Inter_600SemiBold, Inter_500Medium } from '@expo-google-fonts/inter';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 
 // View é a mesma coisa que DIV
 export default function App(){
-
+    let [fontsLoaded] = useFonts({
+        Poppins_600SemiBold,
+        Inter_600SemiBold,
+        Inter_500Medium
+      });
     const Stack = createStackNavigator();
-
+    if (!fontsLoaded) {
+        return <AppLoading />;
+      }
     return(
         
         <SafeAreaView style={styles.container}>

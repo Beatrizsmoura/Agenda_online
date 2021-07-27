@@ -15,7 +15,7 @@ import AnotacoesPng from "../../miagendaAssets/CriarCompromisso/anotacoes.png";
 
 export default function CriarCompromisso(props) {
     return (
-        <View>
+        <View style={styles.container}>
               
             <ScrollView>
                 <View style={styles.groupTituloCompromisso}>
@@ -131,7 +131,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'white'
     },
     groupTituloCompromisso: {
         paddingHorizontal: 26
