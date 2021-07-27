@@ -7,16 +7,16 @@ import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { RectButton, BorderlessButton } from "react-native-gesture-handler";
 
-import ReuniaoPng from "../../assets/reuniao.png";
-import ConvidadosPng from "../../assets/convidados.png";
-import AnotacoesPng from "../../assets/anotacoes.png";
+import ReuniaoPng from "../../miagendaAssets/CriarCompromisso/reuniao.png";
+import ConvidadosPng from "../../miagendaAssets/CriarCompromisso/convidados.png";
+import AnotacoesPng from "../../miagendaAssets/CriarCompromisso/anotacoes.png";
 
-import Header from "../../components/Header";
+//import Header from "../../components/Header";
 
-export default function CriarCompromisso() {
+export default function CriarCompromisso(props) {
     return (
         <View>
-            <Header />
+              
             <ScrollView>
                 <View style={styles.groupTituloCompromisso}>
                     <TextInput

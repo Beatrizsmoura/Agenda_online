@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from './src/pages/Home'
 import ViewAgenda from './src/pages/ViewAgenda'
+import CriarCompromisso from './src/pages/CriarCompromisso';
 
 
 
@@ -19,6 +20,10 @@ export default function App(){
         <SafeAreaView style={styles.container}>
             <NavigationContainer>
                 <Stack.Navigator>
+                
+
+
+
                     <Stack.Screen
                     options={{
                         title: '',
@@ -32,15 +37,42 @@ export default function App(){
                     <Stack.Screen
                     options={{
                         title: 'Miagenda',
+                        headerLeft: null,
+                        alignItems: 'center',
+                        
                         
                         headerStyle:{
                             borderBottomColor: '#fff',
                             justifyContent: 'center',
                             alignItems: 'center',
-                        }
+                            
+                        },
+                        headerTitleStyle: {
+                            fontSize: 25,
+                        },
+                        headerTitleAlign: 'center',
                     }} 
                     
                     name="ViewAgenda" component={ViewAgenda} />
+
+                    <Stack.Screen
+                    options={{
+                        title: 'Criar Compromisso',
+                        
+                        headerStyle:{
+                            borderBottomColor: '#fff',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            
+                        },
+                        headerTitleStyle: {
+                            fontSize: 25,
+                        },
+                        headerTitleAlign: 'center',
+                    }} 
+                    
+                    name="CriarCompromisso" component={CriarCompromisso} />
+
                 </Stack.Navigator>
             </NavigationContainer>
 
