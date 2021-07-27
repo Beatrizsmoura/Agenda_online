@@ -44,7 +44,7 @@ export default function ViewAgenda(props){
             style={styles.taskTitle}
             value={title} // Passa valor
             onChangeText={ (title) => setTitle(title)} // Toda vez que eu digitar, guarda em algum lugar
-            placeholder='Título da AnotaçãO'
+            placeholder='Título da Anotação'
             />
 
             <TextInput
