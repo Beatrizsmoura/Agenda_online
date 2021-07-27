@@ -5,7 +5,7 @@ import * as Animatable from 'react-native-animatable';
 
 
 
-export default function ViewAgenda(){
+export default function ViewAgenda(props){
 
     const [task, setTask] = useState([
         { key: 1, title: 'Título da Anotação', task: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sollicitudin tincidunt ac a tortor nulla in elementum odio.'},
@@ -26,10 +26,13 @@ export default function ViewAgenda(){
             style={styles.input}
             placeholder='Pesquisar compromisso'
             />
-
-            <Image style={styles.calendar} source={
-                require('../../miagendaAssets/ViewAgenda/Calendar.svg')
-            } />
+            <TouchableOpacity 
+                style={styles.button}
+                onPress={ () => props.navigation.navigate('CriarCompromisso')}>
+                <Image style={styles.calendar} source={
+                    require('../../miagendaAssets/ViewAgenda/Calendar.svg')
+                } />
+            </TouchableOpacity>
 
             <Text style={styles.blocoNotas}>Bloco de Notas</Text>
 
